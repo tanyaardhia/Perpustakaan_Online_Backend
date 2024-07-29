@@ -2,6 +2,7 @@ const { where } = require("sequelize");
 const { comparePassword } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 const { User, Loan, Book } = require("../models");
+const { Op } = require('sequelize'); 
 
 class Controller {
   static async register(req, res) {
@@ -64,7 +65,7 @@ class Controller {
     }
   }
 
-  static async loanBook(req, res) {
+  static async loanBooks(req, res) {
     try {
       const { userId, bookId } = req.body;
       console.log(userId, ">> user id ||", bookId, ">> book id");
@@ -108,6 +109,34 @@ class Controller {
         borrowed_date: newLoan.borrowed_date,
         due_date: newLoan.due_date,
       });
+    } catch (error) {
+      console.log(error);
+      if (error.code !== undefined) {
+        res.status(error.code).json({ message: error.message });
+      } else {
+        res.status(500).json({ message: "Internal Server Error" });
+      }
+    }
+  }
+
+  static async overdueBooks(req, res) {
+    try {
+      const today = new Date();
+      const overdueLoans = await Loan.findAll({
+        where: {
+          due_date: {
+            [Op.lt]: today,
+          },
+          returned_date: null,
+        },
+        include: [
+          { model: User, attributes: ["id", "email", "name"] },
+          { model: Book, attributes: ["id", "title", "author"] },
+        ],
+      });
+
+      console.log(overdueLoans, "<<<");
+      res.status(200).json({ overdueLoans });
     } catch (error) {
       console.log(error);
       if (error.code !== undefined) {
