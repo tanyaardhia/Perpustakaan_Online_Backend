@@ -6,7 +6,7 @@ class Controller {
   static async register(req, res) {
     try {
       const { name, email, password } = req.body;
-      console.log("masuk register");
+      console.log("masuk registerrr");
 
       const newUser = await User.create({ name, email, password });
       res
