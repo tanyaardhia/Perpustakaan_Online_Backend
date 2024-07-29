@@ -16,5 +16,53 @@
     "author": "Harper Lee",
     "published_date": "1960-07-11",
     "status": "checked out"
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "published_date": "1951-07-16",
+    "status": "available"
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "published_date": "1949-06-08",
+    "status": "available"
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "published_date": "1960-07-11",
+    "status": "checked out"
+  },
+  {
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "published_date": "1851-10-18",
+    "status": "available"
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "published_date": "1813-01-28",
+    "status": "available"
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "published_date": "1925-04-10",
+    "status": "available"
+  },
+  {
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "published_date": "1869-01-01",
+    "status": "available"
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "published_date": "1866-01-01",
+    "status": "available"
   }
 ]
