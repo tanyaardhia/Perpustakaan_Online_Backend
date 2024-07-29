@@ -1,0 +1,20 @@
+[
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "published_date": "1951-07-16",
+    "status": "available"
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "published_date": "1949-06-08",
+    "status": "available"
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "published_date": "1960-07-11",
+    "status": "checked out"
+  }
+]
