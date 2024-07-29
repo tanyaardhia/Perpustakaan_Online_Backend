@@ -35,6 +35,15 @@ module.exports = (sequelize, DataTypes) => {
             args: true,
             msg: "Input must be Email format",
           },
+          isValidDomain(value) {
+            const allowedDomains = ["gmail.com", "hotmail.com", "yahoo.com"];
+            const emailDomain = value.split("@")[1];
+            if (!allowedDomains.includes(emailDomain)) {
+              throw new Error(
+                "Email must be from a valid domain (@gmail.com, @hotmail.com, yahoo.com)"
+              );
+            }
+          },
         },
       },
       password: {
