@@ -2,7 +2,7 @@ const { where } = require("sequelize");
 const { comparePassword } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 const { User, Loan, Book } = require("../models");
-const { Op } = require('sequelize'); 
+const { Op } = require("sequelize");
 
 class Controller {
   static async register(req, res) {
@@ -100,8 +100,8 @@ class Controller {
         due_date: new Date(new Date().setDate(new Date().getDate() + 30)),
       });
 
-      dataBook.status = "unavailable";
-      await dataBook.save();
+      dataBook.status = "checked out";
+      await dataBook.save({ Loan });
 
       res.status(201).json({
         message: "Book loaned successfully",
@@ -136,7 +136,10 @@ class Controller {
       });
 
       console.log(overdueLoans, "<<<");
-      res.status(200).json({ overdueLoans });
+      res.status(200).json({
+        message: "Overdue loans retrieved successfully",
+        data: overdueLoans,
+      });
     } catch (error) {
       console.log(error);
       if (error.code !== undefined) {

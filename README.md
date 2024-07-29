@@ -3,6 +3,7 @@
 _Tech Stack:_
 
 - NodeJs
+- PostgreSQL
 
 _Fitur Utama:_
 
